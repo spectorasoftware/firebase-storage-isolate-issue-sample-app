@@ -116,9 +116,9 @@ packages:
   firebase_storage:
     dependency: "direct main"
     description:
-      name: firebase_storage
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../flutterfire/packages/firebase_storage/firebase_storage"
+      relative: true
+    source: path
     version: "10.3.11"
   firebase_storage_platform_interface:
     dependency: transitive

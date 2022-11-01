@@ -98,9 +98,12 @@ class _MyHomePageState extends State<MyHomePage> {
     // Upload the file.
     print('[UPLOAD STARTED]');
 
-    final imageBucket =
-        FirebaseStorage.instanceFor(app: FirestoreService().app);
-    await imageBucket.ref('test-$z.jpg').putFile(file);
+    final imageBucket = FirebaseStorage.instance;
+    try {
+      await imageBucket.ref('test-$z.jpg').putFile(file);
+    } catch (e) {
+      print(e);
+    }
 
     // When an isolate has been triggered prior to upload, you'll
     // never get to this point. If you comment out the isolate, you'll need
@@ -117,16 +120,16 @@ class FirestoreService {
   late final FirebaseApp app;
 
   final options = const FirebaseOptions(
-    appId: '[YOUR APP ID]',
-    apiKey: '[YOUR API KEY]',
-    projectId: '[YOUR PROJECT ID]',
-    messagingSenderId: '[YOUR SENDER ID]',
-    storageBucket: '[YOUR STORAGE BUCKET]',
+    appId: '1:218287927002:ios:a6d27b71f0cb14ee1a3fe3',
+    apiKey: 'AIzaSyCGxZzl9PKhBYXYoqJHorpovqH13O2xr3Q',
+    projectId: 'fir-storage-ios-issue',
+    messagingSenderId: '218287927002',
+    storageBucket: 'fir-storage-ios-issue',
   );
 
   Future<void> init() async {
     app = await Firebase.initializeApp(
-      name: 'testing-isolate-issue',
+      name: 'fir-storage-ios-issue',
       options: options,
     );
   }

@@ -10,7 +10,8 @@ environment:
 
 dependencies:
   firebase_core: ^1.24.0
-  firebase_storage: ^10.3.11
+  firebase_storage:
+    path: ../flutterfire/packages/firebase_storage/firebase_storage
   flutter:
     sdk: flutter
   flutter_isolate: ^2.0.3
